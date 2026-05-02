@@ -28,13 +28,15 @@ export default function Navbar() {
   useEffect(() => setMenuOpen(false), [location]);
 
   const handleAnchorClick = (e, href) => {
-    if (!isHome) return;
     e.preventDefault();
-    const id = href.replace('/#', '');
+    const id = href.replace('/#', '').replace('#', '');
     const el = document.getElementById(id === 'top' ? 'hero' : id);
+    
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      window.location.href = href;
     }
   };
 
@@ -112,7 +114,10 @@ export default function Navbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    onClick={(e) => { handleAnchorClick(e, link.href); setMenuOpen(false); }}
+                    onClick={(e) => { 
+                      handleAnchorClick(e, link.href); 
+                      setTimeout(() => setMenuOpen(false), 150); 
+                    }}
                     className="nav-link px-4 py-3 rounded-xl text-slate-700 hover:bg-brand-greenLight hover:text-brand-green"
                   >
                     {link.label}

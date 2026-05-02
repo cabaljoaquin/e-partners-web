@@ -13,6 +13,10 @@
     @apply font-sans text-slate-800 antialiased;
   }
 
+  section[id] {
+    scroll-margin-top: 85px;
+  }
+
   * {
     @apply box-border;
   }

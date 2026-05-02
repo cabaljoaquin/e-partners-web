@@ -6,7 +6,7 @@ import logoLight from '../../assets/images/logo_light.png';
 import logoDark from '../../assets/images/logo_dark.png';
 
 const NAV_LINKS = [
-  { label: 'Inicio', href: '/#top', isAnchor: true },
+  { label: 'Inicio', href: '/#hero', isAnchor: true },
   { label: 'Nosotros', href: '/#about', isAnchor: true },
   { label: 'Servicios', href: '/#services', isAnchor: true },
   { label: 'Clientes', href: '/#clients', isAnchor: true },
@@ -26,19 +26,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => setMenuOpen(false), [location]);
-
-  const handleAnchorClick = (e, href) => {
-    e.preventDefault();
-    const id = href.replace('/#', '').replace('#', '');
-    const el = document.getElementById(id === 'top' ? 'hero' : id);
-    
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    } else {
-      window.location.href = href;
-    }
-  };
 
   return (
     <header
@@ -64,8 +51,7 @@ export default function Navbar() {
             link.isAnchor ? (
               <a
                 key={link.label}
-                href={link.href}
-                onClick={(e) => handleAnchorClick(e, link.href)}
+                href={isHome ? link.href.replace('/', '') : link.href}
                 className={`nav-link px-4 py-2 rounded-lg hover:bg-brand-green/10 hover:text-brand-green ${
                   scrolled ? 'text-slate-600' : 'text-white/90'
                 }`}
@@ -113,11 +99,8 @@ export default function Navbar() {
                 link.isAnchor ? (
                   <a
                     key={link.label}
-                    href={link.href}
-                    onClick={(e) => { 
-                      handleAnchorClick(e, link.href); 
-                      setTimeout(() => setMenuOpen(false), 150); 
-                    }}
+                    href={isHome ? link.href.replace('/', '') : link.href}
+                    onClick={() => setMenuOpen(false)}
                     className="nav-link px-4 py-3 rounded-xl text-slate-700 hover:bg-brand-greenLight hover:text-brand-green"
                   >
                     {link.label}

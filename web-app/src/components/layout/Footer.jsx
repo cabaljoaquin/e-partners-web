@@ -4,7 +4,7 @@ import logoLight from '../../assets/images/logo_light.png';
 import whatsappIcon from '../../assets/images/whatsapp.png';
 
 const footerLinks = [
-  { label: 'Inicio', href: '/#top' },
+  { label: 'Inicio', href: '/#hero' },
   { label: 'Nosotros', href: '/#about' },
   { label: 'Servicios', href: '/#services' },
   { label: 'Clientes', href: '/#clients' },
@@ -12,6 +12,9 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const location = window.location;
+  const isHome = location.pathname === '/';
+
   return (
     <footer className="bg-brand-dark text-slate-400">
       <div className="container-max py-14">
@@ -32,7 +35,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2">
               {footerLinks.map((link) =>
                 link.href.startsWith('/#') ? (
-                  <a key={link.label} href={link.href} className="text-sm hover:text-brand-green transition-colors">
+                  <a key={link.label} href={isHome ? link.href.replace('/', '') : link.href} className="text-sm hover:text-brand-green transition-colors">
                     {link.label}
                   </a>
                 ) : (

@@ -40,10 +40,10 @@ export default function About() {
           <ScrollReveal delay={0.1}>
             <div className="bg-white rounded-2xl p-8 shadow-card">
               <p className="text-slate-600 leading-relaxed mb-6 text-[15px]">
-                Nuestro equipo está especializado en el <strong>análisis, diseño, desarrollo, testing y gestión</strong> de proyectos de software a medida. Contamos con amplia experiencia en el desarrollo de aplicaciones para compañías de seguros, empresas de retail y clientes del sector público.
+                Nuestro equipo de profesionales combina metodologías probadas con las últimas herramientas de <strong>Inteligencia Artificial</strong> para el análisis, diseño, desarrollo, testing y gestión de proyectos a medida. Hemos evolucionado nuestro ADN tecnológico para desarrollar aplicaciones más eficientes y seguras, respaldados por nuestra amplia experiencia en compañías de seguros, empresas de retail y el sector público.
               </p>
               <p className="text-slate-600 leading-relaxed text-[15px]">
-                Trabajamos en modalidad <strong>outsourcing</strong>, integrando profesionales altamente calificados a los equipos de nuestros clientes, garantizando continuidad, estabilidad y resultados de excelencia en cada proyecto.
+                Trabajamos en modalidad <strong>outsourcing</strong>, integrando talento altamente calificado y potenciado por IA directamente a los equipos de nuestros clientes. Esta sinergia entre experiencia humana y tecnología de vanguardia nos permite garantizar continuidad, mayor velocidad de entrega y resultados de excelencia en cada proyecto.
               </p>
               <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-100">
                 {STATS.map((stat) => (

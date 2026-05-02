@@ -44,7 +44,7 @@ export const PILLARS = [
       "Desarrollo backend/frontend",
       "Integración con sistemas existentes",
     ],
-    aiBoost: "Generación asistida de código, aceleración del desarrollo, mejora en testing y calidad.",
+    aiBoost: "Programación asistida y automatización de pruebas para acortar el time-to-market y entregar software robusto desde el día 1.",
     result: "Soluciones robustas desde el primer día.",
   },
   {

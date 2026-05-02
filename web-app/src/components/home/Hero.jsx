@@ -47,7 +47,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-slate-300 text-lg leading-relaxed max-w-xl mb-10"
           >
-            Combinamos experiencia en sistemas complejos con el uso de herramientas de inteligencia artificial para mejorar la calidad, velocidad y evolución del software. Usamos IA para resolver mejor tus problemas reales.
+            Combinamos más de 15 años de experiencia en sistemas complejos con el poder de las herramientas de inteligencia artificial para mejorar la calidad, velocidad y evolución del software. Usamos IA para resolver de manera mas eficiente los problemas reales de tu negocio y permitir su crecimiento.
           </motion.p>
 
           <motion.div variants={itemVariants}>

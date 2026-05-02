@@ -33,7 +33,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-brand-green/20 text-brand-teal border border-brand-teal/30 mb-6"
           >
             <Sparkles className="w-4 h-4" />
-            Software Factory Evolucionada
+            SOFTWARE FACTORY A LA VANGUARDIA
           </motion.span>
 
           <motion.h1

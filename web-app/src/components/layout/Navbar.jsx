@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Nosotros', href: '/#about', isAnchor: true },
   { label: 'Servicios', href: '/#services', isAnchor: true },
   { label: 'Clientes', href: '/#clients', isAnchor: true },
-  { label: 'E-Partners Gym', href: '/gym', isAnchor: false },
+  // { label: 'E-Partners Gym', href: '/gym', isAnchor: false },
 ];
 
 export default function Navbar() {

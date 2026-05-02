@@ -8,7 +8,7 @@ const footerLinks = [
   { label: 'Nosotros', href: '/#about' },
   { label: 'Servicios', href: '/#services' },
   { label: 'Clientes', href: '/#clients' },
-  { label: 'E-Partners Gym', href: '/gym' },
+  // { label: 'E-Partners Gym', href: '/gym' },
 ];
 
 export default function Footer() {

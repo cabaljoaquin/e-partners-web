@@ -1,0 +1,511 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>e - Partners</title>
+    <meta name="description" content="" />
+    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+    <!-- CORE CSS -->
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- REVOLUTION SLIDER -->
+    <link href="~/assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
+
+    <!--TOASTR-->
+    <link href="~/assets/plugins/toastr/toastr.css" rel="stylesheet" type="text/css" />
+
+    <!-- THEME CSS -->
+    <link href="~/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/assets/css/Custom.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="~/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+</head>
+
+<!--
+    AVAILABLE BODY CLASSES:
+
+    smoothscroll 			= create a browser smooth scroll
+    enable-animation		= enable WOW animations
+
+    bg-grey					= grey background
+    grain-grey				= grey grain background
+    grain-blue				= blue grain background
+    grain-green				= green grain background
+    grain-blue				= blue grain background
+    grain-orange			= orange grain background
+    grain-yellow			= yellow grain background
+
+    boxed 					= boxed layout
+    pattern1 ... patern11	= pattern background
+    menu-vertical-hide		= hidden, open on click
+
+    BACKGROUND IMAGE [together with .boxed class]
+    data-background="~/assets/images/_smarty/boxed_background/1.jpg"
+-->
+<body class="smoothscroll enable-animation">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <div id="header" class="navbar-toggleable-md sticky header-md clearfix light">
+
+            <!-- TOP NAV -->
+            <header id="topNav">
+                <div class="container">
+
+                    <!-- Mobile Menu Button -->
+                    <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Logo -->
+                    <a class="logo float-left scrollTo" href="#top">
+                        <img src="~/Content/Images/logo_light.png" alt="" />
+                        <img src="~/Content/Images/logo_dark.png" alt="" />
+                    </a>
+
+                    <!--
+                        Top Nav
+
+                        AVAILABLE CLASSES:
+                        submenu-dark = dark sub menu
+                    -->
+                    <div class="navbar-collapse collapse float-right nav-main-collapse">
+                        <nav class="nav-main">
+
+                            <!--
+                                .nav-onepage
+                                Required for onepage navigation links
+
+                                Add .external for an external link!
+                            -->
+                            <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                                <li class="active">
+                                    <!-- HOME -->
+                                    <a href="#slider">
+                                        HOME
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- ABOUT -->
+                                    <a href="#about">
+                                        NOSOTROS
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- SERVICES -->
+                                    <a href="#services">
+                                        SERVICIOS
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- Clients -->
+                                    <a href="#clients">
+                                        CLIENTES
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </nav>
+                    </div>
+
+                </div>
+            </header>
+            <!-- /Top Nav -->
+
+        </div>
+
+
+        <!-- SLIDER -->
+        <section id="slider" class="slider fullwidthbanner-container roundedcorners">
+            <div class="fullscreenbanner" data-navigationStyle="preview1">
+                <ul class="hide">
+
+                    <!-- SLIDE  -->
+                    <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 2" data-thumb="/Content/Images/e-partners_205x116.png">
+
+                        <img src="~/assets/images/_smarty/1x1.png" data-lazyload="/Content/Images/e-partners.png" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="110" />
+
+                        <div class="tp-caption very_large_text lfb ltt tp-resizeme"
+                             data-x="right" data-hoffset="-100"
+                             data-y="center" data-voffset="-100"
+                             data-speed="600"
+                             data-start="800"
+                             data-easing="Power4.easeOut"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="500"
+                             data-endeasing="Power4.easeIn">
+                            DESARROLLO DE SOFTWARE
+                        </div>
+
+                        <div class="tp-caption medium_light_white lfb ltt tp-resizeme background-blur-black"
+                             data-x="right" data-hoffset="-150"
+                             data-y="center" data-voffset="10"
+                             data-speed="600"
+                             data-start="900"
+                             data-easing="Power4.easeOut"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="500"
+                             data-endeasing="Power4.easeIn">
+                            Trabajamos en EQUIPO y de manera COLABORATIVA <br /> con nuestros Partners y Clientes<br />
+                        </div>
+
+                    </li>
+
+                    <!-- SLIDE  -->
+                    <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 2" data-thumb="/Content/Images/banner-2_205x116.jpg">
+
+                        <img src="~/assets/images/_smarty/1x1.png" data-lazyload="/Content/Images/banner-2.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="110" />
+
+                        <div class="tp-caption very_large_text lfb ltt tp-resizeme"
+                             data-x="right" data-hoffset="-100"
+                             data-y="center" data-voffset="-100"
+                             data-speed="600"
+                             data-start="800"
+                             data-easing="Power4.easeOut"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="500"
+                             data-endeasing="Power4.easeIn">
+                            CLIMA LABORAL
+                        </div>
+
+                        <div class="tp-caption medium_light_white lfb ltt tp-resizeme background-blur-black"
+                             data-x="right" data-hoffset="-110"
+                             data-y="center" data-voffset="10"
+                             data-speed="600"
+                             data-start="900"
+                             data-easing="Power4.easeOut"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="500"
+                             data-endeasing="Power4.easeIn">
+                            Generamos el clima laboral ideal para nuestro equipo, con<br />
+                            jornadas de trabajo divertidas y llenas de oportunidades.<br />
+                        </div>
+
+                    </li>
+
+
+                </ul>
+                <div class="tp-bannertimer"></div>
+            </div>
+
+        </section>
+        <!-- /SLIDER -->
+        <!-- CALLOUT -->
+        <section class="callout-dark heading-title heading-arrow-bottom" style="z-index:100;">
+            <div class="container">
+
+                <div class="text-center">
+                    <h3 class="fs-30">Entendemos la importancia de nuestro trabajo y lo reflejamos en la calidad de los Servicios que brindamos.</h3>
+                    <p>Nos alineamos con los objetivos de nuestros partners y clientes para asegurar el exito de sus proyectos.</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- /CALLOUT -->
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+
+                <header class="text-center mb-60">
+                    <h2>e - partners srl</h2>
+                    <p class="lead font-lato">software factory</p>
+                    <hr />
+                </header>
+
+
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
+
+                        <h3>¿Quiénes somos?</h3>
+
+                        <p class="dropcap justify">
+                            Somos una Software Factory conformada por un equipo estable de más de  20 profesionales especializados en el análisis,
+                            diseño, desarrollo, testing y gestión de proyectos de software.
+                        </p>
+
+                        <p class="justify">
+                            Contamos con amplia experiencia en desarrollo de aplicaciones para compañías de seguro, empresas de retail, etc.
+                        </p>
+
+
+                        <hr />
+                    </div>
+                    <div class="col-lg-1">
+                        <hr class="vertical" />
+                    </div>
+
+                    <div class="col-lg-5 col-sm-12">
+
+                        <h3>¿Por qué elegirnos?</h3>
+
+                        <p><i class="fa fa-check-circle-o"></i> Equipo de desarrolladores estable y altamente capacitado</p>
+                        <p><i class="fa fa-check-circle-o"></i> Experiencia y continuidad en proyectos de grandes clientes</p>
+                        <p><i class="fa fa-check-circle-o"></i> Compromiso y responsabilidad</p>
+                        <p><i class="fa fa-check-circle-o"></i> Nos integramos con el cliente como un solo equipo</p>
+                        <p><i class="fa fa-check-circle-o"></i> Tarifas muy competitivas</p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+        <!-- /ABOUT -->
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="container">
+
+                <header class="text-center mb-60">
+                    <h2>NUESTROS SERVICIOS</h2>
+                    <p class="lead font-lato">Contamos con un equipo altamente capacitado en innumerables tareas referidas al desarrollo de software</p>
+                    <hr />
+                </header>
+
+                <!-- FEATURED BOXES 3 -->
+                <div class="row">
+
+                    <div class="col-md-6 col-6 col-sm-12">
+
+                        <div class="text-center">
+                            <i class="ico-color ico-lg ico-rounded ico-hover fa fa-laptop"></i>
+                            <h4>Servicios</h4>
+                        </div>
+                        <hr />
+                        <div class="text-left">
+
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> Outsourcing</p>
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> Desarrollo a medida de aplicaciones web y mobile</p>
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> Testing</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6 col-sm-12">
+                        <div class="text-center">
+                            <i class="ico-color ico-lg ico-rounded ico-hover fa fa-cogs"></i>
+                            <h4>Tecnologias</h4>
+                        </div>
+                        <hr />
+
+                        <div class="text-left">
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> C#, ASP.NET, MVC, MVVM, Web Api</p>
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> HTML, Javascript, Jquery, Ajax, Bootstrap, Knockout, Angular, Typescript</p>
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> Xamarin, Progressive Web App</p>
+                            <p class="font-open-sans fs-16 services"><i class="fa fa-check-circle-o"></i> SQL Server, Firebase</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /FEATURED BOXES 3 -->
+
+            </div>
+        </section>
+        <!-- /SERVICES -->
+        <!-- Clientes -->
+        <section id="clients">
+            <div class="container">
+
+                <header class="text-center mb-60">
+                    <h2>NUESTROS CLIENTES</h2>
+                    <p class="lead font-lato">Ellos confiaron en nuestra experiencia</p>
+                    <hr />
+                </header>
+
+                <div class="row">
+
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/gss.png" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">Grupo Sancor Seguros</h4>
+                            <p class="justify">Grupo Sancor Seguros es una institución cooperativa financiera con sede en Sunchales, provincia de Santa Fe, Argentina. Se fundó en 1945. </p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/megatone.jpg" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">Megatone</h4>
+                            <p class="justify">
+                                Megatone es una cadena argentina de locales de venta minorista de electrodomésticos. <br />
+                                Actualmente está enfocado fuertemente dentro del rubro tecnológico, ofreciendo a sus clientes una amplia gama de celulares, notebooks, tablets, entre otros.
+                            </p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/tgv.png" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">TGV</h4>
+                            <p class="justify">Compañía de desarrollo e implementación de software que brinda servicios y soluciones de tecnologías de la información a empresas de primera línea y al sector público desde 1992. confiaron en nosotros para colaborar en proyectos para empresas como Telecom SA, Grupo Femsa SA y Cruz Roja Argentina entre otras.</p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/nemo.png" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">Nemo</h4>
+                            <p class="justify">
+                                Es una software factory boutique especializada en el desarrollo de soluciones para la industria turística global, actualmente cuenta con clientes en más de 15 paises. Desarrollamos módulos e integraciones específicas para Amadeus, empresa multinacional de gestión de reservas aéreas y hoteleras, y Heljets, empresa multinacional de alquiler de Jets y Helicopteros.
+                            </p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/neoris.png" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">Neoris</h4>
+                            <p class="justify">
+                                Es una compañía global de consultoria de negocios y TI. Con sede en Miami, Fl., NEORIS tiene operaciones en Estados Unidos, Europa, América Latina, África y Medio Oriente. Participamos en proyectos para empresas como Telecom S.A., Ultramar S.A., Pan American Energy, y Neoenergia S.A.
+                            </p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                    <div class="row">
+                        <!-- item -->
+                        <div class="col-md-2">
+                            <!-- company logo -->
+                            <img src="~/Content/Images/Home/Clientes/Austin.png" class="img-fluid" alt="company logo">
+                        </div>
+                        <div class="col-md-10">
+                            <!-- company detail -->
+                            <h4 class="mb-10">Austin Powder Argentina</h4>
+                            <p class="justify">
+                                Empresa líder en la producción nacional de Explosivos, Sistemas de iniciación y prestación de Servicios de Voladura del país. Desarrollamos su sitio web corporativo y llevamos a cabo el relevamiento, análisis, desarrollo e implementación de Sistema de Comercio Exterior para la empresa.
+                            </p>
+                        </div>
+                    </div><!-- /item -->
+                    <hr />
+                </div>
+
+            </div>
+        </section>
+        <!-- /TEAM -->
+
+    </div>
+    <!-- /wrapper -->
+    <!-- SCROLL TO TOP -->
+    <a href="#" id="toTop"></a>
+
+    <footer id="footer">
+        <div class="copyright">
+            <div class="container">
+                <ul class="float-right m-0 list-inline mobile-block ">
+                    <li class="fa fa-map-o"><span class=" font-open-sans"> Iturraspe 2223 - San Francisco (Cba.)</span></li>
+                    <li>&bull;</li>
+                    <li><a href="https://wa.me/5493564688653" target="_blank" rel="noopener noreferrer"><img src="~/Content/Images/whatsapp.png" alt="WhatsApp" width="20" height="20" style="vertical-align:middle;margin-right:8px;margin-bottom:3px;"><span class="font-open-sans">03564 - 15688653</span></a></li>
+                </ul>
+                E - Partners S.R.L. &trade;
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="inner">
+            <span class="loader"></span>
+        </div>
+    </div><!-- /PRELOADER -->
+    <!-- JAVASCRIPT FILES -->
+    <script>var plugin_path = '/assets/plugins/';</script>
+    <script src="~/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+    <script src="~/assets/js/scripts.js"></script>
+
+    <!-- REVOLUTION SLIDER -->
+    <script src="~/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/assets/js/view/demo.revolution_slider.js"></script>
+
+    <!-- TOASTR -->
+    <script src="~/assets/plugins/toastr/toastr.js"></script>
+
+    <!-- PAGELEVEL SCRIPTS -->
+    <script src="~/assets/js/contact.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/Custom.js"></script>
+
+
+    <!--
+        GMAP.JS
+        http://hpneo.github.io/gmaps/
+    -->
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
+    <script src="~/assets/plugins/gmaps.js"></script>
+    <script>
+
+        //jQuery(document).ready(function () {
+        //    var map2 = new GMaps({
+        //        div: '#map2',
+        //        lat: -12.043333,
+        //        lng: -77.028333,
+        //        scrollwheel: false
+        //    });
+
+        //    var marker = map2.addMarker({
+        //        lat: -12.043333,
+        //        lng: -77.028333,
+        //        title: 'Company, Inc.'
+        //    });
+        //});
+
+    </script>
+
+
+</body>
+</html>

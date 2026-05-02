@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate-800 antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .section-pad {
+    @apply py-20 px-4;
+  }
+
+  .container-max {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-green hover:bg-brand-greenDark text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-brand hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-white border-2 border-white/30 hover:border-white hover:bg-white/10 font-semibold px-6 py-3 rounded-xl transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-brand-navy leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-brand-gray mt-3 leading-relaxed;
+  }
+
+  .nav-link {
+    @apply text-sm font-semibold tracking-wide uppercase transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(circle, #d1fae5 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+    min-width: 300%;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-33.33%); }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #3D9B6A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a7a52;
+}

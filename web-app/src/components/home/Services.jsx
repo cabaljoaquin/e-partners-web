@@ -1,3 +1,4 @@
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import ScrollReveal   from '../ui/ScrollReveal';
 import SectionHeader  from '../ui/SectionHeader';
 import { PILLARS }    from '../../data/pillars';
@@ -7,41 +8,71 @@ function PillarCard({ pillar }) {
   const Icon   = pillar.icon;
   const isTeal = pillar.color === 'brand-teal';
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const mouseX = useMotionValue(isMobile ? 150 : 0);
+  const mouseY = useMotionValue(isMobile ? 150 : 0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }) {
+    if (isMobile) return;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   return (
-    <div className="card h-full flex flex-col overflow-hidden border border-slate-100 hover:border-brand-green/30 hover:shadow-xl transition-all duration-300">
-      <div className="p-8 pb-6 bg-gradient-to-b from-slate-50 to-white">
-        <div className="flex items-center gap-4 mb-5">
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm ${isTeal ? 'bg-brand-teal/10' : 'bg-brand-green/10'}`}>
-            <Icon className={`w-7 h-7 ${isTeal ? 'text-brand-teal' : 'text-brand-green'}`} />
+    <div 
+      className="card relative group h-full flex flex-col border border-slate-100 hover:border-brand-green/30 hover:shadow-xl transition-all duration-300"
+      onMouseMove={handleMouseMove}
+    >
+      <div className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden">
+        <motion.div
+          className="pointer-events-none absolute inset-0 transition duration-500 opacity-40 md:opacity-0 md:group-hover:opacity-100"
+          style={{
+            background: useMotionTemplate`
+              radial-gradient(
+                650px circle at ${mouseX}px ${mouseY}px,
+                ${isTeal ? 'rgba(45, 122, 126, 0.08)' : 'rgba(61, 155, 106, 0.08)'},
+                transparent 80%
+              )
+            `,
+            zIndex: 20,
+          }}
+        />
+        
+        <div className="relative z-10 p-8 pb-6 bg-gradient-to-b from-slate-50 to-white">
+          <div className="flex items-center gap-4 mb-5">
+            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm ${isTeal ? 'bg-brand-teal/10' : 'bg-brand-green/10'}`}>
+              <Icon className={`w-7 h-7 ${isTeal ? 'text-brand-teal' : 'text-brand-green'}`} />
+            </div>
+            <h3 className="font-display font-bold text-xl text-brand-navy leading-tight">
+              {pillar.title}
+            </h3>
           </div>
-          <h3 className="font-display font-bold text-xl text-brand-navy leading-tight">
-            {pillar.title}
-          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed">{pillar.description}</p>
         </div>
-        <p className="text-slate-600 text-sm leading-relaxed">{pillar.description}</p>
-      </div>
 
-      <div className="px-8 pb-6 flex-1">
-        <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Qué hacemos</h4>
-        <ul className="flex flex-col gap-2.5 mb-6">
-          {pillar.actions.map((action, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isTeal ? 'bg-brand-teal' : 'bg-brand-green'}`} />
-              <span className="text-sm text-slate-700 font-medium">{action}</span>
-            </li>
-          ))}
-        </ul>
-        <div className={`p-4 rounded-xl border ${isTeal ? 'bg-brand-teal/5 border-brand-teal/10' : 'bg-brand-green/5 border-brand-green/10'}`}>
-          <h4 className={`text-xs font-bold uppercase tracking-widest mb-1.5 ${isTeal ? 'text-brand-teal' : 'text-brand-green'}`}>
-            Cómo suma la IA
-          </h4>
-          <p className="text-xs text-slate-600 leading-relaxed font-medium">{pillar.aiBoost}</p>
+        <div className="px-8 pb-6 flex-1 bg-white">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Qué hacemos</h4>
+          <ul className="flex flex-col gap-2.5 mb-6">
+            {pillar.actions.map((action, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isTeal ? 'bg-brand-teal' : 'bg-brand-green'}`} />
+                <span className="text-sm text-slate-700 font-medium">{action}</span>
+              </li>
+            ))}
+          </ul>
+          <div className={`p-4 rounded-xl border bg-white/80 backdrop-blur-sm ${isTeal ? 'border-brand-teal/10' : 'border-brand-green/10'}`}>
+            <h4 className={`text-xs font-bold uppercase tracking-widest mb-1.5 ${isTeal ? 'text-brand-teal' : 'text-brand-green'}`}>
+              Cómo suma la IA
+            </h4>
+            <p className="text-xs text-slate-600 leading-relaxed font-medium">{pillar.aiBoost}</p>
+          </div>
         </div>
-      </div>
 
-      <div className={`px-8 py-5 mt-auto border-t flex items-center justify-between ${isTeal ? 'bg-brand-teal text-white border-brand-teal' : 'bg-brand-green text-white border-brand-green'}`}>
-        <span className="text-xs font-bold uppercase tracking-wider opacity-80 shrink-0">Resultado</span>
-        <span className="text-sm font-semibold text-right leading-tight max-w-[75%]">{pillar.result}</span>
+        <div className={`px-8 py-5 mt-auto border-t flex items-center justify-between ${isTeal ? 'bg-brand-teal text-white border-brand-teal' : 'bg-brand-green text-white border-brand-green'}`}>
+          <span className="text-xs font-bold uppercase tracking-wider opacity-80 shrink-0">Resultado</span>
+          <span className="text-sm font-semibold text-right leading-tight max-w-[75%]">{pillar.result}</span>
+        </div>
       </div>
     </div>
   );

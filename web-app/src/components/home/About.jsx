@@ -1,3 +1,4 @@
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { CheckCircle2 }  from 'lucide-react';
 import ScrollReveal       from '../ui/ScrollReveal';
 import SectionHeader      from '../ui/SectionHeader';
@@ -5,7 +6,7 @@ import { STATS, WHY_US } from '../../data/about';
 
 function StatItem({ icon: Icon, value, label }) {
   return (
-    <div className="text-center">
+    <div className="text-center relative z-10">
       <div className="w-10 h-10 rounded-xl bg-brand-greenLight mx-auto mb-2 flex items-center justify-center">
         <Icon className="w-5 h-5 text-brand-green" />
       </div>
@@ -25,6 +26,17 @@ function WhyUsItem({ text }) {
 }
 
 export default function About() {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const mouseX = useMotionValue(isMobile ? 150 : 0);
+  const mouseY = useMotionValue(isMobile ? 150 : 0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }) {
+    if (isMobile) return;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   return (
     <section id="about" className="section-pad bg-brand-light">
       <div className="container-max">
@@ -38,17 +50,35 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <ScrollReveal delay={0.1}>
-            <div className="bg-white rounded-2xl p-8 shadow-card">
-              <p className="text-slate-600 leading-relaxed mb-6 text-[15px]">
-                Nuestro equipo de profesionales combina metodologías probadas con las últimas herramientas de <strong>Inteligencia Artificial</strong> para el análisis, diseño, desarrollo, testing y gestión de proyectos a medida. Hemos evolucionado nuestro ADN tecnológico para desarrollar aplicaciones más eficientes y seguras, respaldados por nuestra amplia experiencia en compañías de seguros, empresas de retail y el sector público.
-              </p>
-              <p className="text-slate-600 leading-relaxed text-[15px]">
-                Trabajamos en modalidad <strong>outsourcing</strong>, integrando talento altamente calificado y potenciado por IA directamente a los equipos de nuestros clientes. Esta sinergia entre experiencia humana y tecnología de vanguardia nos permite garantizar continuidad, mayor velocidad de entrega y resultados de excelencia en cada proyecto.
-              </p>
-              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-100">
-                {STATS.map((stat) => (
-                  <StatItem key={stat.label} {...stat} />
-                ))}
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-card relative group overflow-hidden"
+              onMouseMove={handleMouseMove}
+            >
+              <motion.div
+                className="pointer-events-none absolute inset-0 transition duration-500 opacity-40 md:opacity-0 md:group-hover:opacity-100"
+                style={{
+                  background: useMotionTemplate`
+                    radial-gradient(
+                      650px circle at ${mouseX}px ${mouseY}px,
+                      rgba(61, 155, 106, 0.08),
+                      transparent 80%
+                    )
+                  `,
+                  zIndex: 20,
+                }}
+              />
+              <div className="relative z-10">
+                <p className="text-slate-600 leading-relaxed mb-6 text-[15px]">
+                  Nuestro equipo de profesionales combina metodologías probadas con las últimas herramientas de <strong>Inteligencia Artificial</strong> para el análisis, diseño, desarrollo, testing y gestión de proyectos a medida. Hemos evolucionado nuestro ADN tecnológico para desarrollar aplicaciones más eficientes y seguras, respaldados por nuestra amplia experiencia en compañías de seguros, empresas de retail y el sector público.
+                </p>
+                <p className="text-slate-600 leading-relaxed text-[15px]">
+                  Trabajamos en modalidad <strong>outsourcing</strong>, integrando talento altamente calificado y potenciado por IA directamente a los equipos de nuestros clientes. Esta sinergia entre experiencia humana y tecnología de vanguardia nos permite garantizar continuidad, mayor velocidad de entrega y resultados de excelencia en cada proyecto.
+                </p>
+                <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-100 bg-white/50 backdrop-blur-sm rounded-xl">
+                  {STATS.map((stat) => (
+                    <StatItem key={stat.label} {...stat} />
+                  ))}
+                </div>
               </div>
             </div>
           </ScrollReveal>

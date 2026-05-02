@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ChevronDown, Sparkles, Network, Cpu, Database, Blocks } from 'lucide-react';
 
 const containerVariants = {
@@ -11,15 +11,28 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export default function Hero() {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : 200]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : -150]);
+
+  const titleWords = "Servicios para construir, mejorar y evolucionar software con".split(" ");
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-hero"
     >
       <div className="absolute inset-0 bg-dots opacity-10" />
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute inset-0 bg-noise" />
+      <motion.div style={{ y: y1 }} className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl animate-pulse-slow pointer-events-none" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1.5s' }} />
 
       <div className="container-max relative z-10 pt-32 pb-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         <motion.div
@@ -38,9 +51,16 @@ export default function Hero() {
 
           <motion.h1
             variants={itemVariants}
-            className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"
+            className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6 flex flex-wrap gap-x-3 gap-y-2"
           >
-            Servicios para construir, mejorar y evolucionar software con <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-brand-teal">IA</span>
+            {titleWords.map((word, i) => (
+              <motion.span key={i} variants={wordVariants} className="inline-block">
+                {word}
+              </motion.span>
+            ))}
+            <motion.span variants={wordVariants} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-brand-teal">
+              IA
+            </motion.span>
           </motion.h1>
 
           <motion.p

@@ -30,10 +30,10 @@ export default function Hero() {
         >
           <motion.span
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-brand-green/20 text-brand-teal border border-brand-teal/30 mb-6"
+            className="inline-flex items-center sm:items-center gap-2 px-4 py-2 sm:py-1.5 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest bg-brand-green/20 text-brand-teal border border-brand-teal/30 mb-6 text-left"
           >
-            <Sparkles className="w-4 h-4" />
-            SOFTWARE FACTORY A LA VANGUARDIA
+            <Sparkles className="w-4 h-4 shrink-0" />
+            <span>SOFTWARE FACTORY A LA VANGUARDIA</span>
           </motion.span>
 
           <motion.h1

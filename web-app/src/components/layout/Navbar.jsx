@@ -32,7 +32,10 @@ export default function Navbar() {
     e.preventDefault();
     const id = href.replace('/#', '');
     const el = document.getElementById(id === 'top' ? 'hero' : id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
 
   return (

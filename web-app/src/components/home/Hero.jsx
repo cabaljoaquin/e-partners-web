@@ -51,7 +51,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={itemVariants}>
-            <a href="#contacto" className="btn-primary text-base">
+            <a href="https://wa.me/5493564688653" target="_blank" rel="noopener noreferrer" className="btn-primary text-base">
               Hablemos de tus sistemas <ArrowRight className="w-5 h-5 ml-2" />
             </a>
           </motion.div>

@@ -34,7 +34,7 @@ export default function Hero() {
       <motion.div style={{ y: y1 }} className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl animate-pulse-slow pointer-events-none" />
       <motion.div style={{ y: y2 }} className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1.5s' }} />
 
-      <div className="container-max relative z-10 pt-32 pb-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="container-max relative z-10 pt-24 pb-8 lg:pt-32 lg:pb-24 flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
         <motion.div
           className="flex-1 text-left"
           variants={containerVariants}
@@ -43,15 +43,15 @@ export default function Hero() {
         >
           <motion.span
             variants={itemVariants}
-            className="inline-flex items-center sm:items-center gap-2 px-4 py-2 sm:py-1.5 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest bg-brand-green/20 text-brand-teal border border-brand-teal/30 mb-6 text-left"
+            className="inline-flex items-center sm:items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-2xl sm:rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest bg-brand-green/20 text-brand-teal border border-brand-teal/30 mb-3 lg:mb-6 text-left"
           >
-            <Sparkles className="w-4 h-4 shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
             <span>SOFTWARE FACTORY A LA VANGUARDIA</span>
           </motion.span>
 
           <motion.h1
             variants={itemVariants}
-            className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6 flex flex-wrap gap-x-3 gap-y-2"
+            className="font-display font-extrabold text-[28px] sm:text-5xl lg:text-6xl text-white leading-[1.15] lg:leading-tight mb-3 lg:mb-6 flex flex-wrap gap-x-2 lg:gap-x-3 gap-y-1 lg:gap-y-2"
           >
             {titleWords.map((word, i) => (
               <motion.span key={i} variants={wordVariants} className="inline-block">
@@ -65,26 +65,26 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="text-slate-300 text-lg leading-relaxed max-w-xl mb-10"
+            className="text-slate-300 text-[13px] sm:text-base lg:text-lg leading-relaxed max-w-xl mb-5 lg:mb-10"
           >
             Combinamos más de 15 años de experiencia en sistemas complejos con el poder de las herramientas de inteligencia artificial para mejorar la calidad, velocidad y evolución del software. Usamos IA para resolver de manera mas eficiente los problemas reales de tu negocio y permitir su crecimiento.
           </motion.p>
 
           <motion.div variants={itemVariants}>
-            <a href="https://wa.me/5493564688653" target="_blank" rel="noopener noreferrer" className="btn-primary text-base">
-              Hablemos de tus sistemas <ArrowRight className="w-5 h-5 ml-2" />
+            <a href="https://wa.me/5493564688653" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm lg:text-base px-5 py-2 lg:px-6 lg:py-3">
+              Hablemos de tus sistemas <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />
             </a>
           </motion.div>
 
           {/* Metrics */}
-          <motion.div variants={itemVariants} className="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+          <motion.div variants={itemVariants} className="flex items-center gap-6 lg:gap-8 mt-6 pt-5 lg:mt-12 lg:pt-8 border-t border-white/10">
              <div>
-                <div className="text-white font-display font-bold text-3xl">+30</div>
-                <div className="text-slate-400 text-sm font-medium">Profesionales en el equipo</div>
+                <div className="text-white font-display font-bold text-xl lg:text-3xl leading-none mb-1">+30</div>
+                <div className="text-slate-400 text-[11px] lg:text-sm font-medium leading-[1.1] lg:leading-tight">Profesionales<br className="sm:hidden" /> en el equipo</div>
              </div>
              <div>
-                <div className="text-white font-display font-bold text-3xl">+15</div>
-                <div className="text-slate-400 text-sm font-medium">Años de experiencia</div>
+                <div className="text-white font-display font-bold text-xl lg:text-3xl leading-none mb-1">+15</div>
+                <div className="text-slate-400 text-[11px] lg:text-sm font-medium leading-[1.1] lg:leading-tight">Años de<br className="sm:hidden" /> experiencia</div>
              </div>
           </motion.div>
         </motion.div>

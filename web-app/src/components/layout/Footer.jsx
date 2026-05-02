@@ -12,8 +12,18 @@ const footerLinks = [
 ];
 
 export default function Footer() {
-  const location = window.location;
-  const isHome = location.pathname === '/';
+  const handleAnchorClick = (e, href) => {
+    e.preventDefault();
+    const id = href.replace('/#', '').replace('#', '');
+    const el = document.getElementById(id === 'top' ? 'hero' : id);
+    
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      window.location.href = href;
+    }
+  };
 
   return (
     <footer className="bg-brand-dark text-slate-400">
@@ -35,7 +45,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2">
               {footerLinks.map((link) =>
                 link.href.startsWith('/#') ? (
-                  <a key={link.label} href={isHome ? link.href.replace('/', '') : link.href} className="text-sm hover:text-brand-green transition-colors">
+                  <a key={link.label} href={link.href} onClick={(e) => handleAnchorClick(e, link.href)} className="text-sm hover:text-brand-green transition-colors">
                     {link.label}
                   </a>
                 ) : (

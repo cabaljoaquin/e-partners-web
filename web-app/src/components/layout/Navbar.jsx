@@ -27,6 +27,24 @@ export default function Navbar() {
 
   useEffect(() => setMenuOpen(false), [location]);
 
+  const handleAnchorClick = (e, href, isMobile = false) => {
+    e.preventDefault();
+    if (isMobile) setMenuOpen(false);
+
+    // Wait for the mobile menu animation to finish (approx 300ms) before scrolling
+    setTimeout(() => {
+      const id = href.replace('/#', '').replace('#', '');
+      const el = document.getElementById(id === 'top' ? 'hero' : id);
+      
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else {
+        window.location.href = href;
+      }
+    }, isMobile ? 300 : 0);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -51,7 +69,8 @@ export default function Navbar() {
             link.isAnchor ? (
               <a
                 key={link.label}
-                href={isHome ? link.href.replace('/', '') : link.href}
+                href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.href, false)}
                 className={`nav-link px-4 py-2 rounded-lg hover:bg-brand-green/10 hover:text-brand-green ${
                   scrolled ? 'text-slate-600' : 'text-white/90'
                 }`}
@@ -99,8 +118,8 @@ export default function Navbar() {
                 link.isAnchor ? (
                   <a
                     key={link.label}
-                    href={isHome ? link.href.replace('/', '') : link.href}
-                    onClick={() => setMenuOpen(false)}
+                    href={link.href}
+                    onClick={(e) => handleAnchorClick(e, link.href, true)}
                     className="nav-link px-4 py-3 rounded-xl text-slate-700 hover:bg-brand-greenLight hover:text-brand-green"
                   >
                     {link.label}

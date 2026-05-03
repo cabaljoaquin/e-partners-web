@@ -9,6 +9,8 @@ export function useMobileSlider(count) {
   const isPausedRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const scrollToCard = useCallback((idx) => {
     const container = scrollRef.current;
     if (!container) return;
@@ -24,13 +26,29 @@ export function useMobileSlider(count) {
     });
   }, [count, scrollToCard]);
 
+  // Track visibility of the entire slider container
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    }, { threshold: 0.1 });
+    
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  // Autoplay only when visible
   useEffect(() => {
     if (window.innerWidth >= MOBILE_BREAKPOINT) return;
+    if (!isVisible) return; // Wait until the user scrolls to it
+
     const timer = setInterval(() => {
       if (!isPausedRef.current) advance();
     }, AUTOPLAY_DELAY_MS);
     return () => clearInterval(timer);
-  }, [advance]);
+  }, [advance, isVisible]);
 
   useEffect(() => {
     const container = scrollRef.current;

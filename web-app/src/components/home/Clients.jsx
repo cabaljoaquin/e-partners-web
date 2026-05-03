@@ -3,6 +3,7 @@ import SectionHeader from '../ui/SectionHeader';
 import whatsappIcon from '../../assets/images/whatsapp.png';
 import { clients } from '../../data/clients';
 import { Building2 } from 'lucide-react';
+import VerticalExpoSlider from './VerticalExpoSlider';
 
 function ClientInitial({ name, color, logo }) {
   if (logo) {
@@ -41,6 +42,25 @@ function ClientInitial({ name, color, logo }) {
 }
 
 export default function Clients() {
+  const renderClientCard = (client, isActive) => (
+    <div className={`p-6 md:p-8 h-full flex flex-col transition-colors duration-300 ${isActive ? 'bg-white' : 'bg-slate-50'}`}>
+      <div className="flex items-start gap-4 mb-4">
+        <ClientInitial name={client.shortName} color={client.color} logo={client.logo} />
+        <div>
+          <h4 className="font-display font-bold text-brand-navy text-lg md:text-xl leading-tight">
+            {client.name}
+          </h4>
+          <span className="inline-block mt-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-brand-gray">
+            {client.industry}
+          </span>
+        </div>
+      </div>
+      <p className="text-slate-600 text-sm md:text-base leading-relaxed flex-1">
+        {client.description}
+      </p>
+    </div>
+  );
+
   return (
     <section id="clients" className="section-pad bg-brand-light">
       <div className="container-max">
@@ -52,27 +72,28 @@ export default function Clients() {
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid grid-cols-2 gap-6 mb-16">
           {clients.map((client, idx) => (
-            <ScrollReveal key={client.id} delay={idx * 0.08}>
-              <div className="card p-6 hover:border-brand-green/30 border border-transparent transition-colors">
-                <div className="flex items-start gap-4 mb-3">
-                  <ClientInitial name={client.shortName} color={client.color} logo={client.logo} />
-                  <div>
-                    <h4 className="font-display font-bold text-brand-navy text-base leading-tight">
-                      {client.name}
-                    </h4>
-                    <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-brand-gray">
-                      {client.industry}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {client.description}
-                </p>
+            <ScrollReveal key={client.id} delay={idx * 0.08} className="h-full">
+              <div className="card h-full hover:border-brand-green/30 border border-transparent transition-colors">
+                {renderClientCard(client, true)}
               </div>
             </ScrollReveal>
           ))}
+        </div>
+
+        {/* Mobile Vertical Expo Slider View */}
+        <div className="md:hidden mb-20 relative">
+          <VerticalExpoSlider 
+            items={clients} 
+            renderItem={renderClientCard} 
+          />
+          <p className="text-center text-[11px] text-slate-400 mt-14 uppercase tracking-widest font-semibold flex items-center justify-center gap-2">
+            <span className="w-4 h-px bg-slate-300"></span>
+            Deslizá hacia arriba
+            <span className="w-4 h-px bg-slate-300"></span>
+          </p>
         </div>
 
         {/* CTA */}

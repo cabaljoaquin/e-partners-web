@@ -3,6 +3,11 @@ import { motion }      from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal    from '../ui/ScrollReveal';
 import SectionHeader   from '../ui/SectionHeader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCube, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cube';
+import 'swiper/css/pagination';
 
 import img1         from '../../assets/images/1n.jpeg';
 import img2         from '../../assets/images/2n.jpeg';
@@ -106,7 +111,8 @@ export default function Gallery() {
         </ScrollReveal>
       </div>
 
-      <div className="relative mt-10 w-full max-w-[1536px] mx-auto px-4 md:px-8">
+      {/* Desktop slider */}
+      <div className="hidden md:block relative mt-10 w-full max-w-[1536px] mx-auto px-4 md:px-8">
         <NavButton direction="left"  onClick={prevSlide} />
         <NavButton direction="right" onClick={nextSlide} />
 
@@ -137,6 +143,32 @@ export default function Gallery() {
 
         <SliderDots total={totalDots} activeIndex={currentIndex} onDotClick={setCurrentIndex} />
       </div>
+
+      {/* Mobile Cube Slider */}
+      <div className="md:hidden flex justify-center mt-10 px-4 pb-10">
+        <Swiper
+          effect="cube"
+          grabCursor={true}
+          loop={true}
+          cubeEffect={{ shadow: true, slideShadows: true, shadowOffset: 20, shadowScale: 0.94 }}
+          pagination={{ clickable: true }}
+          modules={[EffectCube, Pagination]}
+          className="w-[82vw]"
+        >
+          {IMAGES.map((src, i) => (
+            <SwiperSlide key={i}>
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl">
+                <img
+                  src={src}
+                  alt={`Equipo ${i + 1}`}
+                  className="w-full h-full object-cover object-center saturate-[0.9] contrast-[1.05] brightness-[1.02]"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 }
+

@@ -1,6 +1,10 @@
 import ScrollReveal        from '../ui/ScrollReveal';
 import { TECH_CATEGORIES } from '../../data/technologies';
-import { useMobileSlider } from '../../hooks/useMobileSlider';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCube, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cube';
+import 'swiper/css/pagination';
 
 function TechCard({ category }) {
   return (
@@ -22,26 +26,7 @@ function TechCard({ category }) {
   );
 }
 
-function SliderDots({ total, activeIndex, onDotClick }) {
-  return (
-    <div className="flex justify-center gap-2 mt-6">
-      {Array.from({ length: total }).map((_, idx) => (
-        <button
-          key={idx}
-          onClick={() => onDotClick(idx)}
-          aria-label={`Ir a categoría ${idx + 1}`}
-          className={`h-2 rounded-full transition-all duration-300 focus:outline-none ${
-            activeIndex === idx ? 'bg-brand-green w-8' : 'bg-slate-200 hover:bg-slate-300 w-2.5'
-          }`}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function Technologies() {
-  const { scrollRef, activeIndex, scrollToCard } = useMobileSlider(TECH_CATEGORIES.length);
-
   return (
     <section id="technologies" className="section-pad bg-brand-light border-y border-brand-teal/10">
       <div className="container-max">
@@ -52,6 +37,7 @@ export default function Technologies() {
           </h3>
         </ScrollReveal>
 
+        {/* Desktop grid */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
           {TECH_CATEGORIES.map((category, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.1}>
@@ -60,21 +46,27 @@ export default function Technologies() {
           ))}
         </div>
 
-        <div className="md:hidden">
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-auto gap-4 px-4 pb-4 -mb-4 snap-x snap-mandatory scroll-smooth"
-            style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+        {/* Mobile Cube Slider */}
+        <div className="md:hidden flex justify-center pb-12">
+          <Swiper
+            effect="cube"
+            grabCursor={true}
+            loop={true}
+            cubeEffect={{ shadow: true, slideShadows: true, shadowOffset: 16, shadowScale: 0.92 }}
+            pagination={{ clickable: true }}
+            modules={[EffectCube, Pagination]}
+            className="w-[80vw]"
+            style={{ paddingBottom: '2.5rem' }}
           >
             {TECH_CATEGORIES.map((category, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[88vw] snap-start">
+              <SwiperSlide key={idx}>
                 <TechCard category={category} />
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
-          <SliderDots total={TECH_CATEGORIES.length} activeIndex={activeIndex} onDotClick={scrollToCard} />
+          </Swiper>
         </div>
       </div>
     </section>
   );
 }
+

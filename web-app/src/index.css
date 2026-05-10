@@ -116,3 +116,52 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2a7a52;
 }
+
+/* Gallery – Coverflow (desktop) */
+.gallery-coverflow-swiper {
+  width: 100%;
+  padding-bottom: 3rem !important;
+  padding-top: 1rem !important;
+}
+
+.gallery-coverflow-swiper .swiper-slide {
+  width: 32%;
+  max-width: 450px;
+  /* Ocultar los slides que no son el activo, previo o siguiente para ver solo 3 */
+  opacity: 0 !important;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.gallery-coverflow-swiper .swiper-slide-active,
+.gallery-coverflow-swiper .swiper-slide-next,
+.gallery-coverflow-swiper .swiper-slide-prev {
+  opacity: 1 !important;
+  visibility: visible;
+}
+
+.gallery-coverflow-swiper .swiper-slide-active {
+  /* Asegurar que el slide central resalte sin sombras extrañas */
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.gallery-coverflow-swiper .swiper-pagination-bullet {
+  background: #3D9B6A;
+  opacity: 0.4;
+}
+
+.gallery-coverflow-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #3D9B6A;
+}
+
+/* Gallery – Flip (mobile) */
+.gallery-flip-swiper {
+  width: 100%;
+  padding-bottom: 2.5rem !important;
+}
+
+.gallery-flip-swiper .swiper-slide {
+  width: 100%;
+}
+

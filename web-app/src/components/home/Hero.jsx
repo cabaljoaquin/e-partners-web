@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-dots opacity-10" />
       <div className="absolute inset-0 bg-noise" />
       <motion.div style={{ y: y1 }} className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl animate-pulse-slow pointer-events-none" />
-      <motion.div style={{ y: y2 }} className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1.5s' }} />
+      <motion.div style={{ y: y2, animationDelay: '1.5s' }} className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow pointer-events-none" />
 
       <div className="container-max relative z-10 pt-24 pb-8 lg:pt-32 lg:pb-24 flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
         <motion.div

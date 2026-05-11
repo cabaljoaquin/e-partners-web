@@ -1,9 +1,8 @@
-import { Users, Briefcase, Target } from 'lucide-react';
+import { Users, Briefcase } from 'lucide-react';
 
 export const STATS = [
   { icon: Users,     value: '+30', label: 'Profesionales'  },
   { icon: Briefcase, value: '+15', label: 'Años activos'   },
-  { icon: Target,    value: '6+',  label: 'Clientes clave' },
 ];
 
 export const WHY_US = [

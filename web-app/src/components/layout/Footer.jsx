@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone } from 'lucide-react';
-import logoLight from '../../assets/images/logo_light.png';
 import whatsappIcon from '../../assets/images/whatsapp.png';
 
 const footerLinks = [
@@ -32,7 +31,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-6">
-              <img src={logoLight} alt="e-partners logo" className="h-12 w-auto" />
+              <img src="/imagenLogoChatGpt.png" alt="e-partners logo" className="h-20 w-auto" />
             </div>
             <p className="text-sm leading-relaxed">
               Equipo estable de profesionales especializados en análisis, diseño, desarrollo y gestión de proyectos de software.

@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoLight from '../../assets/images/logo_light.png';
-import logoDark from '../../assets/images/logo_dark.png';
 
 const NAV_LINKS = [
   { label: 'Inicio', href: '/#hero', isAnchor: true },
@@ -49,17 +47,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-1'
+          : 'bg-transparent py-3'
       }`}
     >
       <div className="container-max flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center group">
           <img 
-            src={scrolled ? logoDark : logoLight} 
+            src="/imagenLogoChatGpt.png" 
             alt="e-partners logo" 
-            className="h-10 w-auto group-hover:scale-105 transition-transform"
+            className="h-16 w-auto group-hover:scale-105 transition-transform"
           />
         </Link>
 

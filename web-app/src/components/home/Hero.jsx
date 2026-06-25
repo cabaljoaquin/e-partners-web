@@ -51,6 +51,7 @@ export default function Hero() {
 
           <motion.h1
             variants={itemVariants}
+            aria-label="Servicios para construir, mejorar y evolucionar software con IA"
             className="font-display font-extrabold text-[28px] sm:text-5xl lg:text-6xl text-white leading-[1.15] lg:leading-tight mb-3 lg:mb-6 flex flex-wrap gap-x-2 lg:gap-x-3 gap-y-1 lg:gap-y-2"
           >
             {titleWords.map((word, i) => (

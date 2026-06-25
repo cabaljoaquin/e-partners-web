@@ -4,14 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fuentes: preconnect + carga no bloqueante (antes era un @import en el CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" />
+
     <meta name="description" content="e-Partners SRL — Software Factory. Outsourcing, desarrollo web y mobile a medida, testing y gestión de proyectos de software en Argentina." />
     <meta name="keywords" content="software factory, desarrollo software, outsourcing, Argentina, Córdoba, web, mobile" />
     <title>e-Partners SRL | Software Factory</title>
+    <link rel="canonical" href="https://www.e-partners.com.ar/" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="e-Partners SRL | Software Factory" />
     <meta property="og:description" content="Outsourcing, desarrollo web y mobile a medida, testing y gestión de proyectos de software en Argentina." />
     <meta property="og:image" content="https://www.e-partners.com.ar/logo_dark.png" />
     <meta property="og:url" content="https://www.e-partners.com.ar/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="e-Partners SRL" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="e-Partners SRL | Software Factory" />
+    <meta name="twitter:description" content="Outsourcing, desarrollo web y mobile a medida, testing y gestión de proyectos de software en Argentina." />
+    <meta name="twitter:image" content="https://www.e-partners.com.ar/logo_dark.png" />
+
+    <!-- Datos estructurados: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "e-Partners SRL",
+      "url": "https://www.e-partners.com.ar/",
+      "logo": "https://www.e-partners.com.ar/logo_dark.png",
+      "description": "Software Factory: outsourcing, desarrollo web y mobile a medida, testing y gestión de proyectos de software.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Iturraspe 2223",
+        "addressLocality": "San Francisco",
+        "addressRegion": "Córdoba",
+        "addressCountry": "AR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-9-3564-688653",
+        "contactType": "sales"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

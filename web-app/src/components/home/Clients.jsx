@@ -26,7 +26,7 @@ function ClientInitial({ name, color, logo }) {
         className={`w-16 h-12 flex items-center justify-center shrink-0 ${extraClasses}`}
         style={bgStyle}
       >
-        <img src={logo} alt={name} className="max-w-full max-h-full object-contain drop-shadow-sm" />
+        <img src={logo} alt={`Logo de ${name}`} loading="lazy" decoding="async" className="max-w-full max-h-full object-contain drop-shadow-sm" />
       </div>
     );
   }
@@ -47,9 +47,9 @@ export default function Clients() {
       <div className="flex items-start gap-4 mb-4">
         <ClientInitial name={client.shortName} color={client.color} logo={client.logo} />
         <div>
-          <h4 className="font-display font-bold text-brand-navy text-lg md:text-xl leading-tight">
+          <h3 className="font-display font-bold text-brand-navy text-lg md:text-xl leading-tight">
             {client.name}
-          </h4>
+          </h3>
           <span className="inline-block mt-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-brand-gray">
             {client.industry}
           </span>
@@ -112,7 +112,7 @@ export default function Clients() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-brand-green font-semibold px-6 py-3 rounded-xl hover:bg-brand-greenLight transition-colors"
             >
-              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              <img src={whatsappIcon} alt="WhatsApp" width="20" height="20" loading="lazy" decoding="async" className="w-5 h-5" />
               03564 - 15688653
             </a>
           </div>

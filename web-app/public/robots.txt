@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gym
+
+Sitemap: https://www.e-partners.com.ar/sitemap.xml

@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-6">
-              <img src="/imagenLogoChatGpt.png" alt="e-partners logo" className="h-20 w-auto" />
+              <img src="/imagenLogoChatGpt.png" alt="e-Partners SRL" width="478" height="160" loading="lazy" decoding="async" className="h-20 w-auto" />
             </div>
             <p className="text-sm leading-relaxed">
               Equipo estable de profesionales especializados en análisis, diseño, desarrollo y gestión de proyectos de software.

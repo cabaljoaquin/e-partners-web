@@ -54,9 +54,13 @@ export default function Navbar() {
       <div className="container-max flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center group">
-          <img 
-            src="/imagenLogoChatGpt.png" 
-            alt="e-partners logo" 
+          <img
+            src="/imagenLogoChatGpt.png"
+            alt="e-Partners SRL"
+            width="478"
+            height="160"
+            fetchpriority="high"
+            decoding="async"
             className="h-16 w-auto group-hover:scale-105 transition-transform"
           />
         </Link>

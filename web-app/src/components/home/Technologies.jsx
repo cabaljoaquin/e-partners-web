@@ -9,9 +9,9 @@ import 'swiper/css/pagination';
 function TechCard({ category }) {
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-brand-teal/30 transition-all h-full">
-      <h4 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide border-b border-slate-50 pb-3">
+      <h3 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide border-b border-slate-50 pb-3">
         {category.title}
-      </h4>
+      </h3>
       <div className="flex flex-wrap gap-2">
         {category.techs.map((tech, i) => (
           <span
@@ -31,10 +31,10 @@ export default function Technologies() {
     <section id="technologies" className="section-pad bg-brand-light border-y border-brand-teal/10">
       <div className="container-max">
         <ScrollReveal className="text-center mb-12">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-brand-green mb-2">Stack Tecnológico</h2>
-          <h3 className="font-display font-bold text-2xl md:text-3xl text-brand-navy">
+          <p className="text-sm font-bold uppercase tracking-widest text-brand-green mb-2">Stack Tecnológico</p>
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-brand-navy">
             Las herramientas con las que construimos y evolucionamos
-          </h3>
+          </h2>
         </ScrollReveal>
 
         {/* Desktop grid */}

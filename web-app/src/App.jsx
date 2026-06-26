@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
-import Gym from './pages/Gym';
+// Gym: desarrollo guardado, no se promociona ni se rutea por ahora.
+// Al no importarse, Vite lo excluye del bundle (tree-shaking).
+// import Gym from './pages/Gym';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,7 +20,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gym" element={<Gym />} />
+        {/* <Route path="/gym" element={<Gym />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -3,14 +3,17 @@ import ScrollReveal   from '../ui/ScrollReveal';
 import SectionHeader  from '../ui/SectionHeader';
 import { PILLARS }    from '../../data/pillars';
 import { useMobileSlider } from '../../hooks/useMobileSlider';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 function PillarCard({ pillar }) {
   const Icon   = pillar.icon;
   const isTeal = pillar.color === 'brand-teal';
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const mouseX = useMotionValue(isMobile ? 150 : 0);
-  const mouseY = useMotionValue(isMobile ? 150 : 0);
+  const isMobile = useIsMobile();
+  // Centrado por defecto: en mobile el glow queda fijo en el centro (no hay mouse);
+  // en desktop el valor inicial es irrelevante porque solo se ve en hover.
+  const mouseX = useMotionValue(150);
+  const mouseY = useMotionValue(150);
 
   function handleMouseMove({ currentTarget, clientX, clientY }) {
     if (isMobile) return;

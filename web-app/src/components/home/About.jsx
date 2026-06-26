@@ -3,6 +3,7 @@ import { CheckCircle2 }  from 'lucide-react';
 import ScrollReveal       from '../ui/ScrollReveal';
 import SectionHeader      from '../ui/SectionHeader';
 import { STATS, WHY_US } from '../../data/about';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 function StatItem({ icon: Icon, value, label }) {
   return (
@@ -26,9 +27,11 @@ function WhyUsItem({ text }) {
 }
 
 export default function About() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const mouseX = useMotionValue(isMobile ? 150 : 0);
-  const mouseY = useMotionValue(isMobile ? 150 : 0);
+  const isMobile = useIsMobile();
+  // Centrado por defecto: en mobile el glow queda fijo en el centro (no hay mouse);
+  // en desktop el valor inicial es irrelevante porque solo se ve en hover.
+  const mouseX = useMotionValue(150);
+  const mouseY = useMotionValue(150);
 
   function handleMouseMove({ currentTarget, clientX, clientY }) {
     if (isMobile) return;

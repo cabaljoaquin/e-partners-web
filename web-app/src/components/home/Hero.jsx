@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ChevronDown, Sparkles, Network, Cpu, Database, Blocks } from 'lucide-react';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,7 +18,7 @@ const wordVariants = {
 };
 
 export default function Hero() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : 200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : -150]);
@@ -94,9 +95,9 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.3 }}
-          className="flex-1 hidden lg:flex justify-center items-center"
+          className="flex-1 flex justify-center items-center mt-8 lg:mt-0"
         >
-          <div className="relative w-80 h-96">
+          <div className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-80 lg:h-96">
             <div className="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
                <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-brand-green to-brand-teal" />
                <div className="p-8 h-full flex flex-col justify-center gap-6 relative z-10">

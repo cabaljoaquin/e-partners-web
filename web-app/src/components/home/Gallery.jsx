@@ -20,16 +20,27 @@ import banner2Img   from '../../assets/images/banner-2.webp';
 
 const IMAGES = [img1, img2, img4, img5, img6, img7, epartnersImg, banner2Img];
 
+// Imagen con la que debe arrancar la galería (logo e-partners)
+const INITIAL_SLIDE = IMAGES.indexOf(img6);
+
 export default function Gallery() {
-  // Precargamos las imágenes al montar el componente para calentar la caché del
-  // navegador. Así, cuando el usuario llega scrolleando a esta sección, las fotos
-  // ya están descargadas y decodificadas: se evita el "pestañeo" de carga.
+  // Precargamos las imágenes solo cuando la sección está por entrar al viewport
+  // (600px antes), para no competir con los recursos críticos del Hero en la
+  // carga inicial. Así se calienta la caché justo a tiempo y se evita el "pestañeo".
   useEffect(() => {
-    IMAGES.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      if (img.decode) img.decode().catch(() => {});
-    });
+    const el = document.getElementById('gallery');
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      IMAGES.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        if (img.decode) img.decode().catch(() => {});
+      });
+      io.disconnect();
+    }, { rootMargin: '600px' });
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   return (
@@ -51,7 +62,8 @@ export default function Gallery() {
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={'auto'}
-          loop={true}
+          loop={IMAGES.length > 2}
+          initialSlide={INITIAL_SLIDE}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
@@ -91,7 +103,8 @@ export default function Gallery() {
           }}
           effect="flip"
           grabCursor={true}
-          loop={true}
+          loop={IMAGES.length > 2}
+          initialSlide={INITIAL_SLIDE}
           keyboard={{ enabled: true }}
           pagination={{ clickable: true }}
           navigation={true}

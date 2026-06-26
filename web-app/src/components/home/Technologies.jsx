@@ -51,7 +51,7 @@ export default function Technologies() {
           <Swiper
             effect="cube"
             grabCursor={true}
-            loop={true}
+            loop={TECH_CATEGORIES.length > 2}
             cubeEffect={{ shadow: true, slideShadows: true, shadowOffset: 16, shadowScale: 0.92 }}
             pagination={{ clickable: true }}
             modules={[EffectCube, Pagination]}

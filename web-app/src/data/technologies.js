@@ -13,6 +13,6 @@ export const TECH_CATEGORIES = [
   },
   {
     title: "Mobile y Cloud",
-    techs: ["Xamarin", "Progressive Web Apps (PWA)", "Cloud Architecture", "Apis REST", "Nativas iOS/Android"],
+    techs: ["Xamarin", "Progressive Web Apps (PWA)", "Cloud Architecture", "APIs REST", "Nativas iOS/Android"],
   },
 ];

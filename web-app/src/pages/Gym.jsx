@@ -87,7 +87,7 @@ export default function Gym() {
             <SectionHeader
               eyebrow="Funcionalidades"
               title="Todo lo que necesita tu gimnasio"
-              subtitle="Un sistema completo, intuitivo y accesible desde cualquier dispositivo. Usted ocúpese de sus alumnos — nosotros nos encargamos del resto."
+              subtitle="Un sistema completo, intuitivo y accesible desde cualquier dispositivo. Ocupate de tus alumnos — nosotros nos encargamos del resto."
             />
           </ScrollReveal>
 

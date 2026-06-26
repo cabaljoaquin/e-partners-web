@@ -104,7 +104,7 @@ export default function Clients() {
               ¿Tu empresa podría ser la próxima?
             </h3>
             <p className="text-white/80 mb-6">
-              Contáctanos y exploremos juntos cómo podemos potenciar tu proyecto.
+              Contactanos y exploremos juntos cómo podemos potenciar tu proyecto.
             </p>
             <a
               href="https://wa.me/5493564688653"

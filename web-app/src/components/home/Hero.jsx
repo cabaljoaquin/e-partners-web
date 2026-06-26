@@ -28,12 +28,27 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-hero"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand-dark"
     >
-      <div className="absolute inset-0 bg-dots opacity-10" />
+      {/* Base: gradiente + halo de luz superior */}
+      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[70rem] h-[45rem] bg-radial-glow pointer-events-none" />
+
+      {/* Blobs aurora con parallax (exterior) + movimiento orgánico (interior) */}
+      <motion.div style={{ y: y1 }} className="absolute top-[10%] right-[8%] pointer-events-none">
+        <div className="w-[26rem] h-[26rem] lg:w-[34rem] lg:h-[34rem] rounded-full bg-brand-green/25 blur-[110px] animate-aurora" />
+      </motion.div>
+      <motion.div style={{ y: y2 }} className="absolute bottom-[6%] left-[4%] pointer-events-none">
+        <div className="w-[22rem] h-[22rem] lg:w-[30rem] lg:h-[30rem] rounded-full bg-brand-teal/25 blur-[110px] animate-aurora-2" />
+      </motion.div>
+
+      {/* Grid con máscara + ruido + viñeta */}
+      <div className="absolute inset-0 bg-grid-fade pointer-events-none" />
       <div className="absolute inset-0 bg-noise" />
-      <motion.div style={{ y: y1 }} className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl animate-pulse-slow pointer-events-none" />
-      <motion.div style={{ y: y2, animationDelay: '1.5s' }} className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-brand-teal/20 blur-3xl animate-pulse-slow pointer-events-none" />
+      <div className="absolute inset-0 bg-vignette pointer-events-none" />
+
+      {/* Fundido inferior hacia la siguiente sección */}
+      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-b from-transparent to-brand-dark/70 pointer-events-none" />
 
       <div className="container-max relative z-10 pt-24 pb-8 lg:pt-32 lg:pb-24 flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
         <motion.div
@@ -69,7 +84,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-slate-300 text-[13px] sm:text-base lg:text-lg leading-relaxed max-w-xl mb-5 lg:mb-10"
           >
-            Combinamos más de 15 años de experiencia en sistemas complejos con el poder de las herramientas de inteligencia artificial para mejorar la calidad, velocidad y evolución del software. Usamos IA para resolver de manera mas eficiente los problemas reales de tu negocio y permitir su crecimiento.
+            Combinamos más de 15 años de experiencia en sistemas complejos con el poder de las herramientas de inteligencia artificial para mejorar la calidad, velocidad y evolución del software. Usamos IA para resolver de manera más eficiente los problemas reales de tu negocio y permitir su crecimiento.
           </motion.p>
 
           <motion.div variants={itemVariants}>
@@ -98,6 +113,8 @@ export default function Hero() {
           className="flex-1 flex justify-center items-center mt-8 lg:mt-0"
         >
           <div className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-80 lg:h-96">
+            {/* Halo detrás de la tarjeta */}
+            <div className="absolute -inset-6 bg-gradient-brand opacity-20 blur-3xl rounded-[2.5rem] pointer-events-none" />
             <div className="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
                <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-brand-green to-brand-teal" />
                <div className="p-8 h-full flex flex-col justify-center gap-6 relative z-10">
@@ -129,7 +146,7 @@ export default function Hero() {
                   </div>
                </div>
                
-               <div className="absolute inset-0 bg-grid-white opacity-5" />
+               <div className="absolute inset-0 bg-grid-fade opacity-40" />
             </div>
 
             <motion.div 
